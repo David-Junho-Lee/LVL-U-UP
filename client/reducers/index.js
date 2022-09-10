@@ -1,7 +1,13 @@
 import { combineReducers } from 'redux'
 
-import fruits from './fruits'
+import user from './user'
+import workouts from './workouts'
+import quotes from './quotes'
+import userprofile from './userprofile'
 
 export default combineReducers({
-  fruits,
+  userprofile,
+  quotes,
+  workouts,
+  user,
 })

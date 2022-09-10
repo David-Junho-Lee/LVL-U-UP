@@ -1,12 +1,12 @@
-import { SET_FRUITS } from '../actions'
+import { ADD_USERPROFILE } from '../actions/index'
 
 const initialState = []
 
 const reducer = (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {
-    case SET_FRUITS:
-      return payload
+    case ADD_USERPROFILE:
+      return [...state, payload]
     default:
       return state
   }
