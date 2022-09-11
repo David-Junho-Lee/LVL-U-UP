@@ -22,12 +22,17 @@ function UserProfile() {
 
   return (
     <>
-      <h2>User profile</h2>
-      <div className="container">
+      <h3 className="userprofile-h2">My information</h3>
+      <h2 className="userprofile-h3">
+        We use this information to track your calories, distance travelled,
+        activeness level
+      </h2>
+      <div className="userprofile-container">
         <form>
           <div>
             <label htmlFor="name">Name:</label>
             <input
+              className="input-textbox"
               type="text"
               name="name"
               placeholder="name"
@@ -38,9 +43,10 @@ function UserProfile() {
           <div>
             <label htmlFor="height">Height:</label>
             <input
+              className="input-textbox"
               type="text"
               name="height"
-              placeholder="height"
+              placeholder="height in cm"
               onChange={handleChange}
               value={newUserProfile.height}
             ></input>
@@ -48,9 +54,10 @@ function UserProfile() {
           <div>
             <label htmlFor="weight">Weight:</label>
             <input
+              className="input-textbox"
               type="text"
               name="weight"
-              placeholder="weight"
+              placeholder="weight in kg"
               onChange={handleChange}
               value={newUserProfile.weight}
             ></input>
@@ -58,6 +65,7 @@ function UserProfile() {
           <div>
             <label htmlFor="health_goals">Health Goals:</label>
             <input
+              className="input-textbox"
               type="text"
               name="health_goals"
               placeholder="health goals"
@@ -68,6 +76,7 @@ function UserProfile() {
           <div>
             <label htmlFor="email">E-mail:</label>
             <input
+              className="input-textbox"
               type="text"
               name="email"
               placeholder="email"
@@ -76,6 +85,29 @@ function UserProfile() {
             ></input>
           </div>
           <div>
+            <label htmlFor="age">Age:</label>
+            <input
+              className="input-textbox"
+              type="text"
+              name="age"
+              placeholder="age"
+              onChange={handleChange}
+              value={newUserProfile.age}
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="gender">Gender:</label>
+            <input
+              className="input-textbox"
+              type="text"
+              name="gender"
+              placeholder="gender"
+              onChange={handleChange}
+              value={newUserProfile.gender}
+            ></input>
+          </div>
+          <br></br>
+          <div className="input-submitbutton">
             <input
               type="submit"
               onClick={submitUserProfile}

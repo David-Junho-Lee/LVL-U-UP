@@ -14,6 +14,8 @@ function addUserProfile(
   height,
   health_goals,
   email,
+  age,
+  gender,
   db = connection
 ) {
   return db('userprofile').insert({
@@ -22,13 +24,10 @@ function addUserProfile(
     height: height,
     health_goals: health_goals,
     email: email,
+    age: age,
+    gender: gender,
   })
 }
-
-// function getUserAndUserProfile(db=connection) {
-//   return db('userprofile')
-//   .join('user', 'user.id', 'userprofile.id')
-// }
 
 module.exports = {
   getUserProfile,

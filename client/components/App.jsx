@@ -1,53 +1,68 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import UserProfile from './Userprofile.jsx'
-import {
-  fetchWorkouts,
-  fetchUser,
-  fetchQuotes,
-  fetchUserProfile,
-} from '../actions/'
+import Workouts from './Workouts.jsx'
+import { Route, Routes, Link } from 'react-router-dom'
+import { fetchWorkouts, fetchUser, fetchQuotes } from '../actions/'
 
 function App() {
   const workouts = useSelector((state) => state.workouts)
-  const user = useSelector((state) => state.user)
+  // const user = useSelector((state) => state.user)
   const quotes = useSelector((state) => state.quotes)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchUser())
     dispatch(fetchWorkouts())
     dispatch(fetchQuotes())
-    // dispatch(fetchUserProfile())
   }, [])
-  console.log(quotes)
-  console.log(user)
   console.log(workouts)
+  console.log(quotes)
 
   return (
     <>
       <div className="app">
-        <h1>
+        <h1 className="app-heading">
           <span className="LVLUUP-L1">L</span>
           <span className="LVLUUP-V">V</span>
           <span className="LVLUUP-L2">L</span>
-          <span className="LVLUUP-U1"> U</span>
-          <span className="LVLUUP-U2"> U</span>
+          <span className="LVLUUP-U1">U</span>
+          <span className="LVLUUP-U2">U</span>
           <span className="LVLUUP-P">P</span>
         </h1>
-        <p>{quotes.quote}</p>
+        <p className="app-welcomemessage">
+          <b>
+            Welcome to <span className="LVLUUP-L1">L</span>
+            <span className="LVLUUP-V">V</span>
+            <span className="LVLUUP-L2">L</span>
+            <span className="LVLUUP-U1">U</span>
+            <span className="LVLUUP-U2">U</span>
+            <span className="LVLUUP-P">P</span>
+            <br></br>
+            App that can help you level up your fitness
+          </b>
+        </p>
+        <img src="/images/levelup.jpg"></img>
+        {/* <p>{quotes.quote}</p> */}
         <div>
-          <UserProfile></UserProfile>
+          <Link to={'/userinfo'}>
+            <button className="btn">
+              <span>Get started</span>
+            </button>
+          </Link>
         </div>
-        {/* <ul>
-          {user.map((user) => (
-            <li key={user}>{user}</li>
-          ))}
-        </ul> */}
-        <ul>
-          {workouts.map((workout) => (
-            <li key={workout}>{workout}</li>
-          ))}
-        </ul>
+        <div>
+          <Link to={'/workouts'}>
+            <button className="btn">
+              <span>Workouts</span>
+            </button>
+          </Link>
+        </div>
+        <div>
+          <Routes>
+            <Route path="/userinfo" element={<UserProfile />}></Route>
+            <Route path="/workouts" element={<Workouts />}></Route>
+          </Routes>
+        </div>
       </div>
     </>
   )

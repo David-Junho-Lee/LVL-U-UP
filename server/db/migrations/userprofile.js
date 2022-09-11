@@ -6,6 +6,8 @@ exports.up = function (knex) {
     table.int('weight')
     table.string('health_goals')
     table.string('email')
+    table.string('age')
+    table.string('gender')
   })
 }
 

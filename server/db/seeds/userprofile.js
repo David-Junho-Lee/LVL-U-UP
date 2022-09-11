@@ -10,6 +10,8 @@ exports.seed = function (knex) {
           height: '',
           health_goals: '',
           email: '',
+          age: '',
+          gender: '',
         },
       ])
     })

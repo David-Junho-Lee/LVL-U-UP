@@ -75,6 +75,7 @@ export function addUserProfile(newUserProfile) {
       .then((profile) => {
         console.log(profile)
         dispatch(setUserProfile(profile))
+        return null
       })
       .catch((e) => {
         console.error(e)
