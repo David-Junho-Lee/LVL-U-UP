@@ -4,6 +4,7 @@ import UserProfile from './Userprofile.jsx'
 import Workouts from './Workouts.jsx'
 import { Route, Routes, Link } from 'react-router-dom'
 import { fetchWorkouts, fetchUser, fetchQuotes } from '../actions/'
+import Home from './Home.jsx'
 
 function App() {
   const workouts = useSelector((state) => state.workouts)
@@ -15,8 +16,6 @@ function App() {
     dispatch(fetchWorkouts())
     dispatch(fetchQuotes())
   }, [])
-  console.log(workouts)
-  console.log(quotes)
 
   return (
     <>
@@ -41,25 +40,11 @@ function App() {
             App that can help you level up your fitness
           </b>
         </p>
-        <img src="/images/levelup.jpg"></img>
-        {/* <p>{quotes.quote}</p> */}
-        <div>
-          <Link to={'/userinfo'}>
-            <button className="btn">
-              <span>Get started</span>
-            </button>
-          </Link>
-        </div>
-        <div>
-          <Link to={'/workouts'}>
-            <button className="btn">
-              <span>Workouts</span>
-            </button>
-          </Link>
-        </div>
+        <p>{quotes.quote}</p>
         <div>
           <Routes>
-            <Route path="/userinfo" element={<UserProfile />}></Route>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route exact path="/userinfo" element={<UserProfile />}></Route>
             <Route path="/workouts" element={<Workouts />}></Route>
           </Routes>
         </div>
