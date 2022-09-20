@@ -7,3 +7,12 @@ export function getWorkouts() {
     return res.body.workouts
   })
 }
+
+export function addWodToList(newWod) {
+  return request
+    .post(rootUrl + '/workouts')
+    .send(newWod)
+    .then((res) => {
+      return res.body
+    })
+}

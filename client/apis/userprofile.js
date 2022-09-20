@@ -9,6 +9,7 @@ export function getUserProfile() {
 }
 
 export function addNewUserProfile(newUserProfile) {
+  console.log(newUserProfile)
   return request
     .post(rootUrl + '/userprofile/userinfo')
     .send(newUserProfile)

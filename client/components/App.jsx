@@ -2,9 +2,12 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import UserProfile from './Userprofile.jsx'
 import Workouts from './Workouts.jsx'
-import { Route, Routes, Link } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { fetchWorkouts, fetchUser, fetchQuotes } from '../actions/'
 import Home from './Home.jsx'
+import Nav from './Nav.jsx'
+import Title from './Title.jsx'
+import Dashboard from './Dashboard'
 
 function App() {
   const workouts = useSelector((state) => state.workouts)
@@ -19,35 +22,14 @@ function App() {
 
   return (
     <>
-      <div className="app">
-        <h1 className="app-heading">
-          <span className="LVLUUP-L1">L</span>
-          <span className="LVLUUP-V">V</span>
-          <span className="LVLUUP-L2">L</span>
-          <span className="LVLUUP-U1">U</span>
-          <span className="LVLUUP-U2">U</span>
-          <span className="LVLUUP-P">P</span>
-        </h1>
-        <p className="app-welcomemessage">
-          <b>
-            Welcome to <span className="LVLUUP-L1">L</span>
-            <span className="LVLUUP-V">V</span>
-            <span className="LVLUUP-L2">L</span>
-            <span className="LVLUUP-U1">U</span>
-            <span className="LVLUUP-U2">U</span>
-            <span className="LVLUUP-P">P</span>
-            <br></br>
-            App that can help you level up your fitness
-          </b>
-        </p>
-        <p>{quotes.quote}</p>
-        <div>
-          <Routes>
-            <Route exact path="/" element={<Home />}></Route>
-            <Route exact path="/userinfo" element={<UserProfile />}></Route>
-            <Route path="/workouts" element={<Workouts />}></Route>
-          </Routes>
-        </div>
+      <Nav />
+      <div>
+        <Routes>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/userinfo" element={<UserProfile />}></Route>
+          <Route eaxct path="/workouts" element={<Workouts />}></Route>
+          <Route exact path="/dashboard" element={<Dashboard />}></Route>
+        </Routes>
       </div>
     </>
   )

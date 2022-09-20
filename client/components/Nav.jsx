@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 function Nav() {
   return (
     <div>
-      <h2>Nav</h2>
       <ul className="nav-list">
         <li>
           <Link to={'/dashboard'}>Dashboard</Link>

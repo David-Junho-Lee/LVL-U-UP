@@ -4,6 +4,8 @@ import UserProfile from './Userprofile.jsx'
 import Workouts from './Workouts.jsx'
 import { Route, Routes, Link } from 'react-router-dom'
 import { fetchWorkouts, fetchUser, fetchQuotes } from '../actions/'
+import Title from './Title'
+import WelcomeMessage from './WelcomeMessage.jsx'
 
 function Home() {
   const workouts = useSelector((state) => state.workouts)
@@ -20,6 +22,8 @@ function Home() {
 
   return (
     <>
+      <Title />
+      <WelcomeMessage />
       <div className="app">
         <img src="/images/levelup.jpg"></img>
         {/* <p>{quotes.quote}</p> */}
@@ -27,13 +31,6 @@ function Home() {
           <Link to={'/userinfo'}>
             <button className="btn">
               <span>Get started</span>
-            </button>
-          </Link>
-        </div>
-        <div>
-          <Link to={'/workouts'}>
-            <button className="btn">
-              <span>Workouts</span>
             </button>
           </Link>
         </div>

@@ -18,7 +18,7 @@ router.post('/userinfo', (req, res) => {
     .then((results) => {
       console.log(results)
       res.json({ userprofile: results })
-      return null
+      console.log(res.json)
     })
     .catch((e) => {
       console.error(e)

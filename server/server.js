@@ -14,6 +14,10 @@ server.use(express.static(path.join(__dirname, 'public')))
 server.use('/api/v1/user', userRoutes)
 server.use('/api/v1/workouts', workoutsRoutes)
 server.use('/api/v1/quotes', quotesRoutes)
-server.use('/api/v1/userprofile/', userProfileRoutes)
+server.use('/api/v1/userprofile', userProfileRoutes)
+
+server.get('*', (req, res) => {
+  res.sendFile(path.resolve('server/public/index.html'))
+})
 
 module.exports = server

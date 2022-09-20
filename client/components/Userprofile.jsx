@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addUserProfile } from '../../client/actions/index'
+import { useNavigate } from 'react-router-dom'
 
 function UserProfile() {
   const [newUserProfile, setNewUserProfile] = useState('')
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   function submitUserProfile(event) {
     event.preventDefault()
     dispatch(addUserProfile(newUserProfile))
-    console.log(newUserProfile)
     setNewUserProfile('')
   }
 
@@ -36,7 +37,7 @@ function UserProfile() {
               type="text"
               name="name"
               placeholder="name"
-              onChange={handleChange}
+              onChange={(event) => handleChange(event)}
               value={newUserProfile.name}
             ></input>
           </div>
@@ -47,7 +48,7 @@ function UserProfile() {
               type="text"
               name="height"
               placeholder="height in cm"
-              onChange={handleChange}
+              onChange={(event) => handleChange(event)}
               value={newUserProfile.height}
             ></input>
           </div>
@@ -58,7 +59,7 @@ function UserProfile() {
               type="text"
               name="weight"
               placeholder="weight in kg"
-              onChange={handleChange}
+              onChange={(event) => handleChange(event)}
               value={newUserProfile.weight}
             ></input>
           </div>
@@ -69,7 +70,7 @@ function UserProfile() {
               type="text"
               name="health_goals"
               placeholder="health goals"
-              onChange={handleChange}
+              onChange={(event) => handleChange(event)}
               value={newUserProfile.health_goals}
             ></input>
           </div>
@@ -80,7 +81,7 @@ function UserProfile() {
               type="text"
               name="email"
               placeholder="email"
-              onChange={handleChange}
+              onChange={(event) => handleChange(event)}
               value={newUserProfile.email}
             ></input>
           </div>
@@ -91,7 +92,7 @@ function UserProfile() {
               type="text"
               name="age"
               placeholder="age"
-              onChange={handleChange}
+              onChange={(event) => handleChange(event)}
               value={newUserProfile.age}
             ></input>
           </div>
@@ -102,7 +103,7 @@ function UserProfile() {
               type="text"
               name="gender"
               placeholder="gender"
-              onChange={handleChange}
+              onChange={(event) => handleChange(event)}
               value={newUserProfile.gender}
             ></input>
           </div>
@@ -110,7 +111,7 @@ function UserProfile() {
           <div className="input-submitbutton">
             <input
               type="submit"
-              onClick={submitUserProfile}
+              onClick={(event) => submitUserProfile(event)}
               value="Create User profile"
             ></input>
           </div>

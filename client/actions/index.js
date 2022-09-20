@@ -1,5 +1,5 @@
 import { getUser } from '../apis/user'
-import { getWorkouts } from '../apis/workouts'
+import { getWorkouts, addWodToList } from '../apis/workouts'
 import { getQuotes } from '../apis/quotes'
 import { getUserProfile, addNewUserProfile } from '../apis/userprofile'
 
@@ -7,11 +7,27 @@ export const SET_USER = 'SET_USER'
 export const SET_WORKOUTS = 'SET_WORKOUTS'
 export const SET_QUOTES = 'SET_QUOTES'
 export const ADD_USERPROFILE = 'ADD_USERPROFILE'
+export const ADD_WOD = 'ADD_WOD'
+export const SET_WOD = 'SET_WOD'
 
 export function setUser(user) {
   return {
     type: SET_USER,
     payload: user,
+  }
+}
+
+export function addWod(wod) {
+  return {
+    type: ADD_WOD,
+    payload: wod,
+  }
+}
+
+export function setWod(wod) {
+  return {
+    type: SET_WOD,
+    payload: wod,
   }
 }
 
@@ -35,6 +51,18 @@ export function fetchWorkouts() {
     return getWorkouts().then((workouts) => {
       dispatch(setWorkouts(workouts))
     })
+  }
+}
+
+export function addNewWodToList(newWod) {
+  return (dispatch) => {
+    return addWodToList(newWod)
+      .then((wod) => {
+        dispatch(addWod(wod))
+      })
+      .catch((e) => {
+        console.error(e)
+      })
   }
 }
 
